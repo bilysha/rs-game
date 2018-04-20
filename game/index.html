@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mr.Policeman</title>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="styles/reset.css">
+    <link type="text/css" rel="stylesheet" href="styles/fonts.css">
+    <link type="text/css" rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+    <section class="pre_game show">
+        <button class="pre_game_btnStart"><i class="fa fa-play" aria-hidden="true"></i>Start</button>
+        <button class="pre_game_btnPrologue"><i class="fa fa-file-o" aria-hidden="true"></i>Prologue</button>
+            <article class="about">
+            <p>
+                In <span>2015</span>, humanity was on the verge of extinction.
+                It is assumed that this was a <span>virus.</span> It is not known who created it and for what purpose, but the person who picked it up was considered <span>dead in life</span>.
+                The first symptom is a cough.
+                A few hours after infection, the man looked as if he had been starving for several months. Pale skin, sunken eye sockets, this is the first thing that catches your eye.
+                After that, the man had to live for about an hour. But this was not the worst thing. The people infected by the virus <span>did not die forever</span> ...
+                They came back, but came back with others ... It was a long time predicted by the science fiction <span>"zombie apocalypse"</span>.
+            </p>
+            <p>
+                It is assumed that everything began in southern Africa, and there should have ended, since the military quickly took action.
+                There was a <span>real massacre</span>, in just a few hours more than 99% of the population of Africa was destroyed ...
+                It was decided not to risk. People were shot from the ground and bombed from the air, there was <span>no salvation</span>.
+                From the continent were exported and saved only a few. But the virus was too tenacious. Outbreaks of the disease began to occur <span>around the world</span>, destroying whole cities.
+                In just six months, half the world's population died out. After that, for some unknown reason, the virus stopped hitting people.
+                By this moment of normal life, an end has come. Any big city was just killing dead. The governments ceased to exist, the armies were no more.
+                But there was a new misfortune, <span>the living dead</span> - those people who died, infected with the virus, clearly wanted to eat. <span>The struggle for survival began</span> ...
+            </p>
+        </article>
+        <button class="pre_game_btnOptions"><i class="fa fa-list-alt" aria-hidden="true"></i>Options</button>
+            <section class="options">
+            <p class="legend">About</p>
+            <article>
+                <img src="images/gifs/Animation_idle.gif" alt="animation_idle" class="hero">
+                <p>Mr.Policeman is a shooter game with side view. The game has only one level with constantly increasing difficulty. Main goal is to kill as much zombies as possible.</p>
+            </article>
+            <p class="legend">Controls - movement</p>
+            <article>
+                <img src="images/gifs/Animation_walk.gif">
+                <div>
+                    <p>Use arrow keys to move Mr.Policeman in any position.</p>
+                    <img src="images/gifs/arrows.png" alt="movement" class="klava">
+                </div>
+            </article>
+            <p class="legend">Controls - attack</p>
+            <p>Use next keys to let Mr.Policeman to attack a zombies:</p>
+            <p>C - hand hit - reduces zombie health by 5 by hit</p>
+            <p>V - pistol shot - reduces zombie health by 10 by bullet</p>
+            <p>B - automate hail - reduces zombie health by 10 by billet</p>
+            <img src="images/gifs/attacks.png" alt="attack_keys" class="klava">
+            <article class="attack_images">
+                <img src="images/gifs/Animation_hand.gif" alt="hand_anomation">
+                <img src="images/gifs/Animation_pistol.gif" alt="pistol_animation">
+                <img src="images/gifs/Animation_avtomat.gif" alt="avtomat_animation">
+            </article>
+        </section>
+        <button> <i class="fa fa-reply" aria-hidden="true"></i> Back to site</button>
+    </section>
+
+    <canvas id="background" class="hide">
+        Your browser does not support canvas. Please try again with a different browser.
+    </canvas>
+
+    <section class="gameover_container hide">
+        <p>GAME OVER</p>
+        <section class="gameOver">
+            <article>
+                <button class="gameover_btnRestart"><i class="fa fa-repeat" aria-hidden="true"></i>  Restart </button>
+                <button class="gameover_btnMenu"><i class="fa fa-reply" aria-hidden="true"></i> Menu</button>
+                <button class="gameover_btnExit"><i class="fa fa-times-circle" aria-hidden="true"></i> Exit</button>
+            </article>
+            <article>
+                <p>Score : <span class="hero_score"> </span></p>
+                <p>Time : <span class="hero_time"> </span></p>
+            </article>
+            <article>
+                <p>Killed zombies : <span class="hero_kills"></span></p>
+                <p>Accuracy : <span class="hero_accuracy"></span></p>
+                <div class="more_shooted">
+                    <p>more...</p>
+                    <div class="info-tooltip">
+                        <p>Total shoot : <span class="hero_totalShoots"></span></p>
+                        <p>Missed : <span class="hero_missed"></span></p>
+                        <p>Headshots : <span class="hero_headShots"></span></p>
+                        <p>BodyShoots : <span class="hero_bodyShots"></span></p>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </section>
+
+    <section class="game_pause hide">
+        <section class="pause_buttons">
+            <button class="pause_btnContinue"><i class="fa fa-external-link-square" aria-hidden="true"></i> Continue</button>
+            <button class="pause_btnRestart"><i class="fa fa-repeat" aria-hidden="true"></i> Restart</button>
+            <button class="pause_btnMenu"><i class="fa fa-reply" aria-hidden="true"></i> Menu</button>
+            <button class="pause_btnExit"><i class="fa fa-times-circle" aria-hidden="true"></i> Exit</button>
+        </section>
+        <section class="pause_sound">
+            <p>Sound</p>
+            <label><input type="radio" name="sound" value="0"><i class="fa fa-volume-off" aria-hidden="true"></i></label>
+            <label><input type="radio" name="sound" value="0.5"><i class="fa fa-volume-down" aria-hidden="true"></i></label>
+            <label><input type="radio" name="sound" value="1" checked><i class="fa fa-volume-up" aria-hidden="true"></i></label>
+        </section>
+        <section class="confirm_buttons hide">
+            <p>Are you sure?</p>
+            <div class="confirm">
+                <button class="pause_btnConfirm"><i class="fa fa-check" aria-hidden="true"></i> Yes</button>
+                <button class="pause_btnNo"><i class="fa fa-times" aria-hidden="true"></i> No</button>
+            </div>
+        </section>
+        <section class="container">
+            <p><span>REMEMBER! </span>Do not let the zombie cross the left edge of the field and also do not let them bite you. <span>G</span>ood <span>L</span>uck!</p>
+            <p> Your <span>enemies </span>:</p>
+            <article class="pause_enemies">
+                <figure >
+                    <img src="images/gifs/mama.png" class="lool">
+                    <figcaption class="info-tooltip">
+                        <p><span>H</span>ealth: 20</p>
+                        <p><span>S</span>peed: 5px</p>
+                        <p><span>T</span>ag: mama</p>
+                        <p><span>H</span>appy: always</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/gifs/papa.png">
+                    <figcaption class="info-tooltip">
+                        <p><span>H</span>ealth: 40</p>
+                        <p><span>S</span>peed: 2px</p>
+                        <p><span>T</span>ag: papa</p>
+                        <p><span>H</span>appy: always</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/gifs/boy.png">
+                    <figcaption class="info-tooltip">
+                        <p><span>H</span>ealth: 25</p>
+                        <p><span>S</span>peed: 3px</p>
+                        <p><span>T</span>ag: boy</p>
+                        <p><span>H</span>appy: always</p>
+                    </figcaption>
+                </figure>
+            </article>
+            <p>Your <span>weapons </span>:</p>
+            <article class="pause_weapons">
+                <figure >
+                    <img src="images/gifs/dubina.png">
+                    <figcaption class="info-tooltip">
+                        <p><span>A</span>ttack: 5</p>
+                        <p><span>S</span>peed: slow</p>
+                        <p><span>T</span>ag: dubina</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/gifs/pistol.png">
+                    <figcaption class="info-tooltip">
+                        <p><span>A</span>ttack: 10</p>
+                        <p><span>S</span>peed: mid</p>
+                        <p><span>T</span>ag: pikalet</p>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="images/gifs/avtomat.png">
+                    <figcaption class="info-tooltip">
+                        <p><span>A</span>ttack: 10</p>
+                        <p><span>S</span>peed: fast</p>
+                        <p><span>T</span>ag: avtomat</p>
+                    </figcaption>
+                </figure>
+            </article>
+        </section>
+    </section>
+
+</div>
+
+<script defer src="scripts/keys.js"></script>
+<script defer src="scripts/resources.js"></script>
+<script defer src="scripts/background.js"></script>
+<script defer src="scripts/enemy.js"></script>
+<script defer src="scripts/bullet.js"></script>
+<script defer src="scripts/hero.js"></script>
+<script defer src="scripts/entities.js"></script>
+<script src="scripts/game.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,412 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    width: 1200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    align-items: center;
+    position: relative;
+}
+
+canvas {
+    overflow: hidden;
+}
+
+.pre_game {
+    width: 1000px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.pre_game button {
+    width: 100%;
+    font-family: 'finger_paint';
+    font-size: 25px;
+    background-color: transparent;
+    color: #FFFFFF;
+    display: block;
+    border: 2px solid #FFFFFF;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px 0;
+    text-align: left;
+    cursor: pointer;
+}
+
+.pre_game button i {
+    margin: 0 30px 0 350px;
+}
+
+.options, .about {
+    height: 0;
+    width: 100%;
+    transition: height 2s, border 2s, padding 2s;
+    border: 2px solid transparent;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+    font-family: 'Georgia';
+    font-size: 24px;
+    color: #FFFFFF;
+    margin-top: -10px;
+}
+.options *, .about * {
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.options article {
+    display: flex;
+    justify-content: space-between;
+}
+
+.options article p {
+    width: 70%;
+    font-size: 20px;
+}
+
+.hero_idle {
+    height: 100px;
+    width: 50px;
+    border-radius: 5px;
+}
+
+.legend {
+    font-family: 'finger_paint';
+    font-size: 30px;
+    text-align: center;
+    margin: 50px 0 20px 0;
+}
+
+.gameOver {
+    height: 200px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+    font-size: 26px;
+    font-family: 'finger_paint';
+    color: #FFFFFF;
+}
+
+.gameover_container {
+    position: absolute;
+    top: 50px;
+    width: 1200px;
+    font-weight: bold;
+
+}
+
+.gameover_container>p {
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    font-size: 180px;
+    margin-bottom: -40px;
+}
+
+.gameOver article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.gameOver button, .game_pause button {
+    width: 210px;
+    height: 50px;
+    border: 2px solid #FFFFFF;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-family: 'finger_paint';
+    font-size: 26px;
+    text-align: left;
+    padding: 7px 0 0 10px ;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.game_pause button {
+    width: 50px;
+}
+
+.gameOver button:hover, .game_pause button:hover {
+    width: 200px;
+    transition: width 1s;
+}
+
+.game_pause {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    font-size: 0;
+    background-color: rgba(0,0,0,0.8);
+    height: 630px;
+    padding: 10px;
+}
+
+.pause_buttons{
+    min-width: 230px;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+.pause_buttons button {
+    display: block;
+    width: 210px;
+    margin: 10px;
+
+}
+.confirm_buttons, .pause_sound {
+    width: 233px;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 10px;
+}
+.confirm_buttons button, .pause_sound {
+    margin-top: 20px;
+}
+.confirm_buttons button:first-child:hover {
+    background-color: #00FF99;
+}
+.confirm {
+    display: flex;
+    justify-content: space-between;
+}
+.confirm_buttons p, .pause_sound p{
+    font-family: 'finger_paint';
+    font-size: 28px;
+    color: #FFFFFF;
+    text-align: center;
+}
+.confirm_buttons button:hover {
+    width: 100px;
+}
+.container {
+    width: 940px;
+    height: 610px;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: top;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    font-size: 24px;
+}
+.container p {
+    color: #FFFFFF;
+    font-family: 'finger_paint';
+    letter-spacing: 2px;
+    line-height: 50px;
+}
+.pause_enemies figure, .pause_weapons figure{
+    display: inline-block;
+    margin: 0 200px 0 20px;
+    position: relative;
+}
+.pause_weapons figure {
+    margin-right: 130px;
+}
+.pause_enemies figure:last-child , .pause_weapons figure:last-child{
+    margin-right: 0;
+}
+.pause_enemies img, .pause_weapons img{
+    border-bottom: 5px solid darkred;
+    border-radius: 10px;
+}
+.info-tooltip p {
+    font-size: 14px;
+    line-height: 30px;
+}
+.pause_enemies figure figcaption, .pause_weapons figure figcaption{
+    color: #FFFFFF;
+    font-size: 16px;
+}
+.klava {
+    width: 200px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+.about p, .options p {
+    margin-bottom: 20px;
+}
+
+p span {
+    font-size: 28px;
+    color: darkred;
+}
+
+.gameover_container p span {
+    font-size: 34px;
+}
+
+.pre_game article div {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.show_about, .show_options{
+    transition: height 2s, border 2s, padding 2s, opacity 2s;
+    border: 2px solid #FFFFFF;
+    border-top: transparent;
+    padding: 20px 200px;
+    margin-top: -12px;
+}
+.show_about *, .show_options * {
+    opacity: 1;
+}
+.show_about {
+    height: 850px;
+}
+
+.show_options {
+    height: 1150px;
+}
+
+.attack_images {
+    margin-top: 20px;
+}
+
+.options img {
+    border-bottom: 5px solid darkred;
+    border-radius: 10px;
+}
+
+.attack_images img:first-child {
+    border-bottom: 5px solid #02007C;
+}
+.attack_images img:nth-child(2) {
+    border-bottom: 5px solid #00FF99;
+}
+.attack_images img:last-child {
+    border-bottom: 5px solid #FDFFAD;
+}
+
+.wrapper button:hover {
+    background-color: #800000;
+}
+
+.wrapper button:not(:hover) {
+    transition: 1s;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+figure img:hover {
+    cursor: pointer;
+}
+
+figure:hover .info-tooltip, .gameOver article div:hover .info-tooltip{
+    opacity: 1;
+}
+
+.gameOver article .more_score, .gameOver article .more_shooted {
+    position: relative;
+    width: 100px;
+    height: 20px;
+}
+
+.gameOver article p:hover {
+    cursor: pointer;
+}
+
+.pause_sound {
+    font-size: 40px;
+    color: #FFFFFF;
+    position: relative;
+    height: 110px;
+    margin-top: 10px;
+}
+
+input[name="sound"] + i {
+    position: absolute;
+    top: 50px;
+    left: 120px;
+    display: block;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+input[type="radio"] {
+    opacity: 0;
+}
+input[type="radio"]:checked + i {
+    color: darkred;
+    border-radius: 10px;
+}
+input[value="0"] + i {
+    left: 20px;
+}
+input[value="0.5"] + i {
+    left: 95px;
+}
+input[value="1"] + i {
+    left: 170px;
+}
+
+.info-tooltip{
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-left: 25px;
+    width: 170px;
+    padding: 10px;
+    background: #2E2E2E;
+    color: #fff;
+    border: 2px solid #800000;
+    border-radius: 5px 10px 10px 10px;
+    transform: translateY(-50%);
+    transition: .5s;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+.gameOver .info-tooltip {
+    width: 200px;
+    top: 100px;
+}
+.info-tooltip:before,
+.info-tooltip:after{
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 100%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+.info-tooltip:before{
+    margin-top: -8px;
+    border-width: 8px 20px 8px 0;
+    border-color: transparent #2E2E2E transparent transparent;
+    z-index: 1;
+}
+.info-tooltip:after{
+    margin-top: -10px;
+    border-width: 10px 24px 10px 0;
+    border-color: transparent #800000 transparent transparent;
+}
