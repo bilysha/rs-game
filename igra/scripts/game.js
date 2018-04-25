@@ -2,7 +2,6 @@ var game = new Game();
 var animation;
 var isRestart = false;
 var isMenu = false;
-var toSite = false;
 
 function start_game() {
     hide_pregame();
@@ -197,9 +196,6 @@ CanvasRenderingContext2D.prototype.roundRect = function(x, y, width, height, rad
 
 };
 
-function to_site() {
-    document.location.href = 'https://bilysha.github.io';
-}
 function hide_pregame() {
     document.getElementsByClassName('pre_game')[0].classList.remove('show');
     document.getElementsByClassName('pre_game')[0].classList.add('hide');
@@ -259,7 +255,6 @@ function confirm_controller() {
         if(!document.getElementsByClassName('game_pause')[0].classList.contains('hide')) {
             document.getElementsByClassName('game_pause')[0].classList.add('hide');
         }
-        isRestart = false;
         init_game();
     }
     
@@ -277,12 +272,6 @@ function confirm_controller() {
         document.getElementById('background').classList.add('hide');
         document.getElementsByClassName('pre_game')[0].classList.remove('hide');
         document.getElementsByClassName('pre_game')[0].classList.add('show');
-        isMenu = false;
-    }
-
-    if(toSite) {
-        document.location.href = 'https://bilysha.github.io';
-        toSite = false;
     }
 }
 
@@ -305,26 +294,17 @@ function set_volume() {
     });
 }
 
-function to_the_site() {
-    if(document.getElementsByClassName('confirm_buttons')[0].classList.contains('hide')) {
-        document.getElementsByClassName('confirm_buttons')[0].classList.remove('hide')
-    }
-    toSite = true;
-}
-
 function onLoad() {
     document.getElementsByClassName('pre_game_btnStart')[0].addEventListener('click', start_game);
     document.getElementsByClassName('pre_game_btnPrologue')[0].addEventListener('click', show_about);
     document.getElementsByClassName('pre_game_btnOptions')[0].addEventListener('click', show_options);
     document.getElementsByClassName('gameover_btnRestart')[0].addEventListener('click', restart_game);
     document.getElementsByClassName('gameover_btnMenu')[0].addEventListener('click', main_menu);
-    document.getElementsByClassName('gameover_btnExit')[0].addEventListener('click', to_site);
     document.getElementsByClassName('pause_btnContinue')[0].addEventListener('click', game.continue);
     document.getElementsByClassName('pause_btnRestart')[0].addEventListener('click', prerestart_game);
     document.getElementsByClassName('pause_btnMenu')[0].addEventListener('click', premain_menu);
     document.getElementsByClassName('pause_btnConfirm')[0].addEventListener('click', confirm_controller);
     document.getElementsByClassName('pause_btnNo')[0].addEventListener('click', desagree);
-    document.getElementsByClassName('pause_btnExit')[0].addEventListener('click', to_the_site);
 }
 
 document.addEventListener("DOMContentLoaded", onLoad);
